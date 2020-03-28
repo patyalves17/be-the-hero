@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import api from '../../services/api';
+
 import { FiArrowLeft } from 'react-icons/fi';
 
 import './styles.css';
@@ -7,6 +9,11 @@ import './styles.css';
 import logoImg from '../../assets/logo.svg';
 
 const Register = props => {
+  function handleRegister(event) {
+    event.preventDefault();
+    console.log('handleRegister');
+  }
+
   return (
     <div className='register-container'>
       <div className='content'>
@@ -22,7 +29,7 @@ const Register = props => {
             Não tenho cadastro
           </Link>
         </section>
-        <form>
+        <form onSubmit={handleRegister}>
           <input placeholder='Nome da ONG' />
           <input type='email' placeholder='E-mail' />
           <input placeholder='whatsapp' />
